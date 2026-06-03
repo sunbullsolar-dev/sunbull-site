@@ -78,10 +78,19 @@ export async function POST(request: Request) {
     );
   }
 
+  // Diagnostic: confirms (without leaking the token) whether env vars are
+  // visible to THIS deployment. Remove once monday delivery is confirmed.
+  console.log("[LEAD] env check:", {
+    hasToken: Boolean(process.env.MONDAY_API_TOKEN),
+    tokenLength: process.env.MONDAY_API_TOKEN?.length ?? 0,
+    boardId: process.env.MONDAY_BOARD_ID ?? "(unset)",
+  });
+
   // ── Deliver to monday (best-effort; never block the user) ───────
   try {
     await createMondayLead(body);
     await notifyTeam(body); // TODO: SMS/email alerts plug in here.
+    console.log("[LEAD] Delivered to monday.com successfully.");
   } catch (err) {
     // Swallow the error for the visitor, but make it loud in the logs.
     console.error("[LEAD] Failed to deliver to monday.com — lead NOT lost, logging payload:", {
@@ -98,8 +107,13 @@ async function createMondayLead(lead: LeadPayload): Promise<void> {
   const boardId = process.env.MONDAY_BOARD_ID;
 
   if (!token || !boardId) {
+    const missingVars = [
+      !token ? "MONDAY_API_TOKEN" : null,
+      !boardId ? "MONDAY_BOARD_ID" : null,
+    ].filter(Boolean);
     throw new Error(
-      "MONDAY_API_TOKEN and/or MONDAY_BOARD_ID env vars are not set — skipping monday delivery.",
+      `Missing env var(s): ${missingVars.join(", ")} — not set for this deployment. ` +
+        "Add them in Vercel → Settings → Environment Variables, then REDEPLOY.",
     );
   }
 
