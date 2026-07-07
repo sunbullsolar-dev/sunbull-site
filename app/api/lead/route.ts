@@ -58,6 +58,19 @@ type LeadPayload = {
   address?: string;
   language?: string;
   billRange?: string;
+  // Optional — captured by the front-of-funnel qualifier. The board has no
+  // dedicated columns, so these get appended to the address note below.
+  utility?: string;
+  zip?: string;
+};
+
+// Map qualifier <select> values to readable labels for the address note.
+const UTILITY_LABELS: Record<string, string> = {
+  ladwp: "LADWP",
+  sce: "SCE",
+  glendale: "Glendale (GWP)",
+  bwp: "Burbank (BWP)",
+  other: "Other / Not sure",
 };
 
 export async function POST(request: Request) {
@@ -119,10 +132,19 @@ async function createMondayLead(lead: LeadPayload): Promise<void> {
 
   const { date, time } = nowUtcForMonday();
 
+  // Fold the qualifier answers into the address note (no dedicated columns).
+  const extras = [
+    lead.utility ? `Utility: ${UTILITY_LABELS[lead.utility] ?? lead.utility}` : null,
+    lead.zip ? `ZIP: ${lead.zip}` : null,
+  ].filter(Boolean);
+  const addressNote = extras.length
+    ? `${lead.address!}  •  ${extras.join("  •  ")}`
+    : lead.address!;
+
   const columnValues: Record<string, unknown> = {
     [COLUMNS.phone]: { phone: digits(lead.phone!), countryShortName: "US" },
     [COLUMNS.email]: { email: lead.email!, text: lead.email! },
-    [COLUMNS.address]: lead.address!,
+    [COLUMNS.address]: addressNote,
     [COLUMNS.dateReceived]: { date, time },
     [COLUMNS.status]: { label: "New" },
   };

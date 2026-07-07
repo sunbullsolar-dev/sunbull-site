@@ -11,8 +11,9 @@ export function Footer() {
           <div>
             <SunbullWordmark className="text-white [&_.text-ink-700]:text-white/60" />
             <p className="mt-4 max-w-xs text-sm">
-              Local, education-first solar for the San Fernando Valley. We help
-              homeowners understand their electric bill and their options.
+              Education-first solar — based in the San Fernando Valley, serving
+              homeowners across California. We help you understand your electric
+              bill and your options.
             </p>
             <div className="mt-5 space-y-1 text-sm">
               <p>
@@ -48,7 +49,7 @@ export function Footer() {
               <li><a href="#how" className="hover:text-sun-300">How it works</a></li>
               <li><a href="#why" className="hover:text-sun-300">Why Sunbull</a></li>
               <li><a href="#areas" className="hover:text-sun-300">Service area</a></li>
-              <li><a href="#consultation" className="hover:text-sun-300">Free consultation</a></li>
+              <li><a href="#consultation" className="hover:text-sun-300">See My Solar Options</a></li>
             </ul>
           </div>
         </div>

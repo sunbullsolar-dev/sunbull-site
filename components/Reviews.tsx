@@ -27,21 +27,22 @@ export function Reviews() {
   return (
     <section id="reviews" className="bg-sun-50/50 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="reveal mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-sun-600">
-            From our neighbors
+            Real homeowner stories
           </p>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
-            What Valley homeowners say
+            Real California homeowners. Real Google reviews.
           </h2>
         </div>
 
         {/* Horizontal snap-scroll on mobile; 3-up grid on desktop (4th wraps). */}
         <ul className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0">
-          {reviews.map((r) => (
+          {reviews.map((r, i) => (
             <li
               key={r.name}
-              className="flex w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-ink-900/10 bg-white p-7 shadow-sm sm:w-[60%] lg:w-auto"
+              className="reveal flex w-[85%] shrink-0 snap-center flex-col rounded-2xl border border-ink-900/10 bg-white p-7 shadow-sm sm:w-[60%] lg:w-auto"
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="flex items-center justify-between">
                 <Stars />
@@ -70,7 +71,7 @@ export function Reviews() {
           ))}
         </ul>
 
-        <div className="mt-12 text-center">
+        <div className="reveal mt-12 text-center">
           <a
             href={social.google}
             target="_blank"

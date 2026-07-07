@@ -8,7 +8,7 @@ export function Reframe() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="reveal mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-sun-300">
             The reframe
           </p>
@@ -19,7 +19,7 @@ export function Reframe() {
         </div>
 
         {/* Two-column body (stacks on mobile) */}
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-white/75 md:grid-cols-2 md:gap-10">
+        <div className="reveal mx-auto mt-10 grid max-w-4xl gap-6 text-lg leading-relaxed text-white/75 md:grid-cols-2 md:gap-10">
           <p>
             Across California, the utilities are building massive solar farms —
             and a slice of every utility bill helps pay for panels sitting in
@@ -35,8 +35,33 @@ export function Reframe() {
           </p>
         </div>
 
+        {/* The discovery — how owning your power actually works */}
+        <div className="reveal mx-auto mt-12 grid max-w-4xl gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
+          {[
+            {
+              k: "Panels generate",
+              v: "Your roof turns daylight into electricity your home can use right away.",
+            },
+            {
+              k: "Batteries store",
+              v: "Extra power is banked for the evening, when utility rates climb.",
+            },
+            {
+              k: "Dependence drops",
+              v: "The more you make and store, the less you lean on the utility.",
+            },
+          ].map((d) => (
+            <div key={d.k} className="bg-ink-950 p-6">
+              <p className="text-sm font-bold uppercase tracking-widest text-sun-300">
+                {d.k}
+              </p>
+              <p className="mt-2 text-white/70">{d.v}</p>
+            </div>
+          ))}
+        </div>
+
         {/* Comparison cards */}
-        <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-2">
+        <div className="reveal mx-auto mt-6 grid max-w-4xl gap-5 sm:grid-cols-2">
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
             <p className="text-xs font-bold uppercase tracking-widest text-white/40">
               Paying now

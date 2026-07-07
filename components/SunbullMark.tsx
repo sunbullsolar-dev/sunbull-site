@@ -72,10 +72,8 @@ export function SunbullWordmark({ className = "" }: { className?: string }) {
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <SunbullMark className="h-8 w-8 shrink-0" />
       <span className="font-display text-xl font-extrabold tracking-tight">
-        Sun<span className="text-sun-500">bull</span>
-        <span className="ml-1 align-top text-[0.6em] font-semibold uppercase tracking-widest text-ink-700">
-          Solar
-        </span>
+        Sun<span className="text-sun-500">bull</span>{" "}
+        <span className="font-semibold text-ink-700">Solar</span>
       </span>
     </span>
   );

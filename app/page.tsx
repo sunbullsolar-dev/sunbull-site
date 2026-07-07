@@ -2,11 +2,13 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Reframe } from "@/components/Reframe";
 import { WhySunbull } from "@/components/WhySunbull";
+import { FinancingOptions } from "@/components/FinancingOptions";
+import { UtilityGuides } from "@/components/UtilityGuides";
 import { ServiceArea } from "@/components/ServiceArea";
 import { Reviews } from "@/components/Reviews";
 import { FAQ } from "@/components/FAQ";
+import { EnergyIndependence } from "@/components/EnergyIndependence";
 import { Consultation } from "@/components/Consultation";
 import { Footer } from "@/components/Footer";
 import { site, serviceAreas, faqs, social } from "@/lib/site";
@@ -62,11 +64,13 @@ export default function Home() {
         <Hero />
         <TrustBar />
         <HowItWorks />
-        <Reframe />
-        <WhySunbull />
-        <ServiceArea />
         <Reviews />
+        <WhySunbull />
+        <FinancingOptions />
+        <UtilityGuides />
+        <ServiceArea />
         <FAQ />
+        <EnergyIndependence />
         <Consultation />
       </main>
       <Footer />

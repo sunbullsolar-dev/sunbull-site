@@ -4,20 +4,21 @@ export function ServiceArea() {
   return (
     <section id="areas" className="bg-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="reveal mx-auto max-w-2xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-sun-600">
-            Proudly local
+            Local roots, statewide reach
           </p>
           <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">
-            Serving the San Fernando Valley
+            Born in the Valley, serving all of California
           </h2>
           <p className="mt-4 text-lg text-ink-700">
-            From Granada Hills to Woodland Hills, we&apos;re your neighbors. If
-            you don&apos;t see your city listed, reach out — we likely serve it.
+            We&apos;re rooted in the San Fernando Valley — here in person, and by
+            phone and video for homeowners across California. The cities below
+            are home base; if you&apos;re elsewhere in the state, reach out.
           </p>
         </div>
 
-        <ul className="mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-3">
+        <ul className="reveal mx-auto mt-12 flex max-w-4xl flex-wrap justify-center gap-3">
           {serviceAreas.map((city) => (
             <li
               key={city}

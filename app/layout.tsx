@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { site, serviceAreas } from "@/lib/site";
+import { RevealProvider } from "@/components/RevealProvider";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -68,7 +70,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <head>
+        {/* No-JS safety: never leave scroll-reveal content hidden. */}
+        <noscript>
+          <style>{`.reveal{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
+      </head>
+      <body className="font-sans antialiased">
+        {children}
+        <RevealProvider />
+        <Analytics />
+      </body>
     </html>
   );
 }

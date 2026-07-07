@@ -4,7 +4,7 @@ export function FAQ() {
   return (
     <section id="faq" className="bg-sun-50/40 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <div className="text-center">
+        <div className="reveal text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-sun-600">
             Questions, answered
           </p>
@@ -14,10 +14,11 @@ export function FAQ() {
         </div>
 
         <div className="mt-10 space-y-3">
-          {faqs.map((item) => (
+          {faqs.map((item, i) => (
             <details
               key={item.q}
-              className="group rounded-2xl border border-ink-900/10 bg-white px-5 py-4 transition open:shadow-md open:shadow-ink-900/5 [&_summary]:list-none"
+              className="reveal group rounded-2xl border border-ink-900/10 bg-white px-5 py-4 transition open:shadow-md open:shadow-ink-900/5 [&_summary]:list-none"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
               <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-ink-900">
                 <span>{item.q}</span>

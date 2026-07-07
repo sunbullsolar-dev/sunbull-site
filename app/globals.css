@@ -24,6 +24,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── Scroll-reveal ────────────────────────────────────────────────
+   Elements tagged `.reveal` start slightly lowered + transparent and
+   ease into place once they enter the viewport (class added by
+   RevealProvider). Stagger via inline `transition-delay`. */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -34,5 +51,10 @@ body {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+  /* Never leave reveal content hidden when motion is reduced. */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

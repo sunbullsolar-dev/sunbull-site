@@ -33,7 +33,7 @@ export function Header() {
             </svg>
           </a>
           <CallButton variant="outline" showNumber className="hidden whitespace-nowrap text-sm sm:inline-flex lg:hidden xl:inline-flex" />
-          <ConsultButton className="px-5 py-2.5 text-sm" label="Free Consultation" />
+          <ConsultButton className="whitespace-nowrap px-5 py-2.5 text-sm" label="See My Solar Options" />
         </div>
       </div>
     </header>

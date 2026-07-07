@@ -20,7 +20,7 @@ export function WhySunbull() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
           {/* Founder / trust story */}
-          <div>
+          <div className="reveal">
             <p className="text-sm font-semibold uppercase tracking-widest text-sun-300">
               Why Sunbull
             </p>
@@ -36,26 +36,27 @@ export function WhySunbull() {
             <p className="mt-4 text-white/65">
               We&apos;re a solar dealer — we coordinate your project through
               vetted, licensed local contractor partners so the work is done
-              right and to code. You get a neighbor who knows the Valley and
-              your utility, not a national call center.
+              right and to code. You get a team that knows your utility and
+              your area, not a national call center.
             </p>
 
             <div className="mt-6 rounded-2xl border border-sun-400/30 bg-sun-500/10 p-5">
               <p className="text-white/85">
-                <span className="font-bold text-sun-300">We&apos;re a local solar brokerage.</span>{" "}
-                We walk you through every option you qualify for — ownership,
-                financing, lease, or PPA — and help you choose the one that
-                actually fits. No pressure, no jargon.
+                <span className="font-bold text-sun-300">Every option, compared.</span>{" "}
+                As a dealer, we lay out ownership, financing, lease, PPA, and
+                prepaid — and help you choose the one that actually fits your
+                home.
               </p>
             </div>
           </div>
 
           {/* Differentiators grid */}
           <ul className="grid gap-4 sm:grid-cols-2">
-            {reasons.map((r) => (
+            {reasons.map((r, i) => (
               <li
                 key={r.title}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-sun-400/40 hover:bg-white/[0.07]"
+                className="reveal rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-sun-400/40 hover:bg-white/[0.07]"
+                style={{ transitionDelay: `${i * 70}ms` }}
               >
                 <div className="flex items-start gap-3">
                   <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sun-500/15 text-sun-400">

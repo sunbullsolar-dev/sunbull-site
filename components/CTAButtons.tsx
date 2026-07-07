@@ -14,7 +14,7 @@ function PhoneIcon({ className = "" }: { className?: string }) {
 /** Primary "book a consultation" action — scrolls to the lead form. */
 export function ConsultButton({
   className = "",
-  label = "Get My Free Consultation",
+  label = "See My Solar Options",
 }: {
   className?: string;
   label?: string;
